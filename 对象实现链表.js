@@ -20,7 +20,7 @@ class MyLinkedList {
         }
     }
     addAtTail(val) {
-        let curr = this.data
+        let curr = this.data;
         while (curr.next) {
             curr = curr.next
         }

@@ -32,7 +32,6 @@ function addNode(root,value) {
  * @param arr
  */
 function create2Tree(arr) {
-    console.log(arr)
     if(arr == null || arr.length == 0 ) return;
     const root = new Node(arr[0]);
     for (let i = 1; i < arr.length; i++) {
@@ -40,7 +39,30 @@ function create2Tree(arr) {
     }
     return root;
 }
-
-// const arr = random(10);
-const root = create2Tree([1,3,4,9,2,0]);
-console.log(root);
+let index = 0, tempIndex = 0;
+function seach(arr,target) {
+    tempIndex ++;
+    if(arr == null) return;
+    for (let i = 0; i < arr.length; i++) {
+        index ++;
+        if( arr[i] == target) return true;
+    }
+    return false;
+}
+function seachTree(root, target) {
+    index ++;
+    if( root == null ) return false;
+    if( root.value === target ) {
+        return true;
+    }
+    if( root.value > target ){
+        return  seachTree(root.left,target);
+    } else {
+        return  seachTree(root.right,target)
+    }
+}
+const arr = random(1000000);
+const reslutA = seach(arr,3);
+console.log(reslutA,tempIndex);
+const root = create2Tree(arr);
+console.log(seachTree(root,3),index);
