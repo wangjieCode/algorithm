@@ -39,18 +39,14 @@ function create2Tree(arr) {
     }
     return root;
 }
-let index = 0, tempIndex = 0;
 function seach(arr,target) {
-    tempIndex ++;
     if(arr == null) return;
     for (let i = 0; i < arr.length; i++) {
-        index ++;
         if( arr[i] == target) return true;
     }
     return false;
 }
 function seachTree(root, target) {
-    index ++;
     if( root == null ) return false;
     if( root.value === target ) {
         return true;
@@ -62,7 +58,10 @@ function seachTree(root, target) {
     }
 }
 const arr = random(1000000);
-const reslutA = seach(arr,3);
-console.log(reslutA,tempIndex);
 const root = create2Tree(arr);
-console.log(seachTree(root,3),index);
+console.time();
+console.log(seach(arr,100));
+console.timeEnd();
+console.time()
+console.log(seachTree(root,100));
+console.timeEnd()

@@ -27,7 +27,7 @@ class MyLinkedList {
         curr.next = { val, next: null }
     }
     addAtIndex(index, val) {
-        if (index <= 0) return this.addAtHead(val)
+        if (index <= 0) return this.addAtHead(val);
         let curr = this.data
         for (let i = 0; i < index - 1; i++) {
             if (!curr || !curr.next) return null
