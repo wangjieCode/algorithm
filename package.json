@@ -1,0 +1,23 @@
+{
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "数据结构算法（javascript描述）",
+  "main": ".js",
+  "scripts": {
+    "dev": "nodemon ./main.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangjieCode/algorithm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangjieCode/algorithm/issues"
+  },
+  "homepage": "https://github.com/wangjieCode/algorithm#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
