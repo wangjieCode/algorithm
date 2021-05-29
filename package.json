@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "algorithm",
   "version": "1.0.0",
   "description": "数据结构算法（javascript描述）",
