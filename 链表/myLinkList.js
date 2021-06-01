@@ -1,6 +1,6 @@
 import { bianli, findLinkEnd, findLinkItemByIndex } from "../utils/linkList.js"
 
-class ListNode {
+export class ListNode {
     val = null
     next = null
     constructor(val = null) {
@@ -8,7 +8,7 @@ class ListNode {
     }
 }
 
-class LinkList {
+export class LinkList {
     root = null
     constructor(root) {
         if (root instanceof ListNode) {
@@ -35,18 +35,6 @@ class LinkList {
         const newNext = curr.next.next;
         curr.next = newNext
     }
-
 }
 
-const link = new LinkList()
-link.root.val = 1
-link.add(new ListNode(2))
-link.add(new ListNode(3))
-link.add(new ListNode(4))
 
-link.remove(2)
-// console.log(link)
-
-// bianli(link.root)
-// console.log( findLinkEnd(link.root))
-// console.log( findLinkItemByIndex(link.root, 4) )
