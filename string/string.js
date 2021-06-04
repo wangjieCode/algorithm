@@ -55,6 +55,85 @@ var runningSum = function (nums) {
  * @return {number}
  */
 var minCount = function (coins) {
-    
+
 };
-console.log(runningSum([1, 2, 3, 4]))
+// console.log(runningSum([1, 2, 3, 4]))
+
+
+/**
+ * @param {string} jewels
+ * @param {string} stones
+ * @return {number}
+ */
+export var numJewelsInStones = function (jewels = "ebd", stones = "bbb") {
+    const res = stones.match(new RegExp(jewels.split("").join("+|") + "+", "g"))
+    console.log(res)
+    if (res == null) return 0
+    let num = 0;
+    res.forEach(ele => {
+        num += ele.length
+    })
+    return num
+};
+
+/**
+ * @param {number[][]} accounts
+ * @return {number}
+ */
+export var maximumWealth = function (accounts = [[1, 2, 3], [3, 2, 1]]) {
+    let res = 0;
+    for (let i = 0; i < accounts.length; i++) {
+        let temp = 0
+        for (let j = 0; j < accounts[i].length; j++) {
+            temp += accounts[i][j];
+        }
+        res = Math.max(temp, res)
+    }
+    return res
+};
+
+// 给你一个整数数组 nums 。
+
+// 如果一组数字 (i,j) 满足 nums[i] == nums[j] 且 i < j ，就可以认为这是一组 好数对 。
+
+// 返回好数对的数目。
+
+//  输入：nums = [1,2,3,1,1,3]
+// 输出：4
+// 解释：有 4 组好数对，分别是 (0,3), (0,4), (3,4), (2,5) ，下标从 0 开始
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+export var numIdenticalPairs = function (nums = [1, 2, 3, 1, 1, 3]) {
+    let res = 0
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] === nums[j]) {
+                res++
+            }
+        }
+    }
+    return res
+};
+
+// 给你一个二进制字符串 s 。如果字符串中由 1 组成的 最长 连续子字符串 严格长于 由 0 组成的 最长 连续子字符串，返回 true ；否则，返回 false 。
+
+// 例如，s = "110100010" 中，由 1 组成的最长连续子字符串的长度是 2 ，由 0 组成的最长连续子字符串的长度是 3 。
+// 注意，如果字符串中不存在 0 ，此时认为由 0 组成的最长连续子字符串的长度是 0 。字符串中不存在 1 的情况也适用此规则。
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+export var checkZeroOnes = function (s = "1") {
+    const one = s.match(/1+/g) || []
+    const o = s.match(/0+/g) || []
+    let onelen = 0,olen = 0;
+    one.forEach( ele => ele.length > onelen ? onelen = ele.length : null)
+    o.forEach( ele => ele.length > olen ? olen = ele.length : null)
+    if(onelen > olen){
+        return true
+    }
+    return false
+};
