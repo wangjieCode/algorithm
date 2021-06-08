@@ -1,19 +1,36 @@
 import { bianli } from "../utils/linkList";
 import { deleteNode } from "./deleteLinkLIstItem";
 import { ListNode } from "./myLinkList";
+import { getIntersectionNode } from './leetcode160相交链表'
 
-const a =  new ListNode(4)
-const b =  new ListNode(5)
-const c =  new ListNode(1)
-const d =  new ListNode(9)
+const a = new ListNode(4)
+const b = new ListNode(5)
+const c = new ListNode(1)
+const d = new ListNode(9)
 
 a.next = b
 b.next = c
 c.next = d
 
-bianli(a)
-deleteNode(b)
-bianli(a)
 
+/**
+ * 
+ * @param { arruy } arr 
+ */
+export const mapArruyToLinklist = (arr) => {
+    if( !Array.isArray(arr) || arr.length <= 0) return null
+    const root = new ListNode(arr[0])
+    let next = root
+    for(let i = 1; i < arr.length; i ++){
+        next.next = new ListNode( arr[i] )
+        next = next.next 
+    }
+    return root
+}
+// 
+// console.log(mapArruyToLinklist([1,2,3]))
 // 节点 5 （位于单向链表 4->5->1->9 中）
 
+const listA = [4,1,8,4,5], listB = [5,0,1,8,4,5];
+
+console.log( getIntersectionNode( mapArruyToLinklist(listA), mapArruyToLinklist(listB) ))

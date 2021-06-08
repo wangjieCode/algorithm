@@ -7,6 +7,8 @@ export const findLinkEnd = (root) => {
     if (root.next == null) return root;
     return findLinkEnd(root.next)
 }
+
+
 /**
  * 通过类数组索引找到当前元素
  * @param {*} root 

@@ -6,4 +6,6 @@ import { checkZeroOnes, maximumWealth, numIdenticalPairs, numJewelsInStones } fr
 
 // console.log( numIdenticalPairs( ) )
 
-console.log( checkZeroOnes() )
+// console.log( checkZeroOnes() )
+
+import './string'

@@ -129,11 +129,41 @@ export var numIdenticalPairs = function (nums = [1, 2, 3, 1, 1, 3]) {
 export var checkZeroOnes = function (s = "1") {
     const one = s.match(/1+/g) || []
     const o = s.match(/0+/g) || []
-    let onelen = 0,olen = 0;
-    one.forEach( ele => ele.length > onelen ? onelen = ele.length : null)
-    o.forEach( ele => ele.length > olen ? olen = ele.length : null)
-    if(onelen > olen){
+    let onelen = 0, olen = 0;
+    one.forEach(ele => ele.length > onelen ? onelen = ele.length : null)
+    o.forEach(ele => ele.length > olen ? olen = ele.length : null)
+    if (onelen > olen) {
         return true
     }
     return false
 };
+// 图解字节&拼多多&leetcode14：最长公共前缀
+// 输入: ["flower","flow","flight"]
+// 输出: "fl"
+/**
+ * 
+ * @param { string[] } strs 
+ */
+const findMaxLength = (strs) => {
+    if (!strs || strs.length === 0) return strs;
+    let firstStr = strs[0]
+    for (let i = 1; i < strs.length; i++) {
+        let j = 0;
+        for (; j < firstStr.length && j < strs[i].length; j++) {
+            if (firstStr[j] !== strs[i][j]) break
+        }
+        firstStr = firstStr.substr(0, j)
+    }
+    return firstStr
+}
+/**151. 翻转字符串里的单词
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function (s) {
+    if( !s || s.length === 0) return '';
+    return s.trim().split(' ').filter( ele => ele !== '' ).reverse().join(" ")
+};
+// console.log(findMaxLength(["flower", "flow", "flight"]))
+
+console.log(reverseWords("a good   example") )
