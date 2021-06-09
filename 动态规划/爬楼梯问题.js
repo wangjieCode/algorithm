@@ -3,20 +3,20 @@
  * @return {number}
  */
 export var climbStairs = function (n) {
-    const dp = { '1': 1, "2": 2 }
-    return (() => {
+    const dp = { '1': 1, "2": 2 };
+    const compox = (n) => {
         if (dp[n]) {
-            console.log(dp[n])
             return dp[n]
         }
         if (n <= 0) return 0
-        console.log(climbStairs(n - 1) + climbStairs(n - 2))
-        dp[n] = climbStairs(n - 1) + climbStairs(n - 2)
-    })()
+        dp[n] = compox(n - 1) + compox(n - 2)
+        return dp[n]
+    }
+    return compox(n)
 };
 
 export function jump(n) {
-    if (n <= 0) return -1;
+    if (n <= 0) return 0;
     if (n == 1) return 1;
     if (n == 2) return 2;
     return jump(n - 1) + jump(n - 2);
