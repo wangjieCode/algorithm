@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <script>
+        // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
+        // 此api会冻结对象的属性，不支持任何修改，但在属性值是引用类型的时候，引用类型无法被冻结，这个被称为浅冻结
+        var app = new Vue({
+            el: '#app',
+            data: Object.freeze({
+                list: [1,2,3],
+                message: "message"
+            })
+        })
+    </script>
+</body>
+
+</html>
