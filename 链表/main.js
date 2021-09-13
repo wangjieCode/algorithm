@@ -2,6 +2,7 @@ import { bianli } from "../utils/linkList";
 import { deleteNode } from "./deleteLinkLIstItem";
 import { ListNode } from "./myLinkList";
 import { getIntersectionNode } from './leetcode160相交链表'
+import { removeElements } from "./移除链表元素";
 
 const a = new ListNode(4)
 const b = new ListNode(5)
@@ -33,4 +34,10 @@ export const mapArruyToLinklist = (arr) => {
 
 const listA = [4,1,8,4,5], listB = [5,0,1,8,4,5];
 
-console.log( getIntersectionNode( mapArruyToLinklist(listA), mapArruyToLinklist(listB) ))
+const listTest = mapArruyToLinklist([1, 7,7,7, 7])
+
+const newList = removeElements(listTest, 7)
+// console.log(newList)
+bianli(newList)
+
+// console.log( getIntersectionNode( mapArruyToLinklist(listA), mapArruyToLinklist(listB) ))
